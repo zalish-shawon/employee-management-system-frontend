@@ -47,7 +47,7 @@ export default function LoginPage() {
         <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded">Login</button>
 
         <div className="mt-4 text-center">
-          <a href="/register" className="text-sm text-blue-500">Don't have an account? Register</a>
+          <a href="/register" className="text-sm text-blue-500"> Dont have an account? Register</a>
         </div>
       </form>
     </div>
