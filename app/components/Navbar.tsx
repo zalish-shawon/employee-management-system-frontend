@@ -32,6 +32,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <Link href="/dashboard" className="text-gray-600 hover:text-gray-900">Dashboard</Link>
           <Link href="/employees" className="text-gray-600 hover:text-gray-900">Employees</Link>
+          <Link href="/departments" className="text-gray-600 hover:text-gray-900">Departments</Link>
           {user ? (
             <>
               <span className="px-3 py-1 bg-gray-100 rounded text-sm">{user.name || user.email}</span>
