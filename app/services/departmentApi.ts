@@ -5,8 +5,9 @@ const BASE_URL = "http://localhost:5000/api/departments";
 
 export const fetchDepartments = async () => {
   const res = await apiFetch(`${BASE_URL}/allDepartments`) as any;
-  return res.items; // assuming backend returns { total, items }
+  return res.items || res || []; // safe fallback
 };
+
 
 export const fetchDepartment = async (id: string) => {
   return await apiFetch(`${BASE_URL}/${id}`);

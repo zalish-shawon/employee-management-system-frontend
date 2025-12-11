@@ -1,20 +1,32 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import { useState, FormEvent, ChangeEvent } from "react";
+import { useState, FormEvent, ChangeEvent, useEffect } from "react";
 
 type Props = {
-  initialData?: { name: string; description?: string };
+  initialData?: { name: string; code?: string; head?: string };
   onSubmit: (data: any) => void;
   isEdit?: boolean;
 };
 
 export default function DepartmentForm({ initialData, onSubmit, isEdit = false }: Props) {
   const [form, setForm] = useState({
-    name: initialData?.name || "",
-    description: initialData?.description || "",
+    name: "",
+    code: "",
+    head: "",
   });
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  useEffect(() => {
+    if (initialData) {
+      setForm({
+        name: initialData.name || "",
+        code: initialData.code || "",
+        head: initialData.head || "",
+      });
+    }
+  }, [initialData]);
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
@@ -34,18 +46,32 @@ export default function DepartmentForm({ initialData, onSubmit, isEdit = false }
           name="name"
           value={form.name}
           onChange={handleChange}
-          required
           className="w-full border px-3 py-2 rounded"
+          required
         />
       </div>
 
       <div>
-        <label className="block font-medium text-sm">Description</label>
-        <textarea
-          name="description"
-          value={form.description}
+        <label className="block font-medium text-sm">Code</label>
+        <input
+          type="text"
+          name="code"
+          value={form.code}
           onChange={handleChange}
           className="w-full border px-3 py-2 rounded"
+          required
+        />
+      </div>
+
+      <div>
+        <label className="block font-medium text-sm">Head</label>
+        <input
+          type="text"
+          name="head"
+          value={form.head}
+          onChange={handleChange}
+          className="w-full border px-3 py-2 rounded"
+          required
         />
       </div>
 

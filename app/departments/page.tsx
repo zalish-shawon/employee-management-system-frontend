@@ -2,7 +2,10 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 import { useEffect, useState } from "react";
-import { fetchDepartments, deleteDepartment } from "@/app/services/departmentApi";
+import {
+  fetchDepartments,
+  deleteDepartment,
+} from "@/app/services/departmentApi";
 import Link from "next/link";
 
 export default function DepartmentsPage() {
@@ -10,6 +13,7 @@ export default function DepartmentsPage() {
 
   const loadDepartments = async () => {
     const data = await fetchDepartments();
+    // console.log("Departments API response:", data);
     setDepartments(data);
   };
 
@@ -26,7 +30,10 @@ export default function DepartmentsPage() {
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-4">Departments</h1>
-      <Link href="/departments/create" className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+      <Link
+        href="/departments/create"
+        className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+      >
         Create Department
       </Link>
 
@@ -34,18 +41,20 @@ export default function DepartmentsPage() {
         <thead>
           <tr>
             <th className="border px-3 py-2">Name</th>
-            <th className="border px-3 py-2">Description</th>
+            <th className="border px-3 py-2">Code</th>
+            <th className="border px-3 py-2">Head</th>
             <th className="border px-3 py-2">Actions</th>
           </tr>
         </thead>
         <tbody>
-          {departments.map((dep) => (
+          {(departments || []).map((dep) => (
             <tr key={dep._id}>
               <td className="border px-3 py-2">{dep.name}</td>
-              <td className="border px-3 py-2">{dep.description}</td>
+              <td className="border px-3 py-2">{dep.code}</td>
+              <td className="border px-3 py-2">{dep.head}</td>
               <td className="border px-3 py-2 space-x-2">
                 <Link
-                  href={`/departments/${dep._id}`}
+                  href={`/departments/edit/${dep._id}`}
                   className="text-blue-600 hover:underline"
                 >
                   Edit
