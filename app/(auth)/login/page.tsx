@@ -34,22 +34,46 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-[70vh]">
-      <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md bg-white p-6 rounded shadow">
-        <h2 className="text-2xl font-semibold mb-4">Login</h2>
+    <div className="flex items-center justify-center min-h-[80vh] bg-gray-50 px-4">
+  <form
+    onSubmit={handleSubmit(onSubmit)}
+    className="w-full max-w-md bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
+  >
+    <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Welcome Back</h2>
 
-        <label className="block mb-2 text-sm">Email</label>
-        <input {...register("email")} type="email" required className="w-full p-2 border rounded mb-3" />
+    <label className="block mb-2 text-sm font-medium text-gray-700">Email</label>
+    <input
+      {...register("email")}
+      type="email"
+      required
+      className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+      placeholder="you@example.com"
+    />
 
-        <label className="block mb-2 text-sm">Password</label>
-        <input {...register("password")} type="password" required className="w-full p-2 border rounded mb-4" />
+    <label className="block mb-2 text-sm font-medium text-gray-700">Password</label>
+    <input
+      {...register("password")}
+      type="password"
+      required
+      className="w-full p-3 mb-6 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+      placeholder="********"
+    />
 
-        <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded">Login</button>
+    <button
+      type="submit"
+      className="w-full py-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-semibold rounded-lg transition-all duration-300"
+    >
+      Login
+    </button>
 
-        <div className="mt-4 text-center">
-          <a href="/register" className="text-sm text-blue-500"> Dont have an account? Register</a>
-        </div>
-      </form>
+    <div className="mt-5 text-center text-gray-600">
+      Dont have an account?{" "}
+      <a href="/register" className="text-blue-500 font-medium hover:underline">
+        Register
+      </a>
     </div>
+  </form>
+</div>
+
   );
 }
