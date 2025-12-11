@@ -2,10 +2,13 @@
 import { apiFetch } from "./api";
 import { Attendance, ApiResponse, EmployeeOption } from "../types/attendance";
 
-const BASE_URL = "http://localhost:5000/api/attendance";
+const BASE_URL =
+  "https://employee-management-system-backend-ten.vercel.app/api/attendance";
 
 export const fetchAttendance = async (): Promise<ApiResponse<Attendance[]>> => {
-  const res = await apiFetch(`${BASE_URL}/allAttendance`) as ApiResponse<Attendance[]>;
+  const res = (await apiFetch(`${BASE_URL}/allAttendance`)) as ApiResponse<
+    Attendance[]
+  >;
   return res;
 };
 
@@ -30,7 +33,9 @@ export const deleteAttendance = async (id: string) => {
 };
 
 export const fetchEmployeeOptions = async (): Promise<EmployeeOption[]> => {
-  const res = await apiFetch("http://localhost:5000/api/employees/allEmployees") as ApiResponse<any[]>;
+  const res = (await apiFetch(
+    "https://employee-management-system-backend-ten.vercel.app/api/employees/allEmployees"
+  )) as ApiResponse<any[]>;
   return (res.items || []).map((e: any) => ({
     _id: e._id,
     name: e.user.name,

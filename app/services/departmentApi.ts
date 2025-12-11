@@ -1,31 +1,31 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { apiFetch } from "./api";
 
-const BASE_URL = "http://localhost:5000/api/departments";
+const BASE_URL =
+  "https://employee-management-system-backend-ten.vercel.app/api/departments";
 
 export const fetchDepartments = async () => {
-  const res = await apiFetch(`${BASE_URL}/allDepartments`) as any;
+  const res = (await apiFetch(`${BASE_URL}/allDepartments`)) as any;
   return res.items || res || []; // safe fallback
 };
-
 
 export const fetchDepartment = async (id: string) => {
   return await apiFetch(`${BASE_URL}/${id}`);
 };
 
 export const createDepartment = async (data: any) => {
-  const res = await apiFetch(`${BASE_URL}/create-department`, {
+  const res = (await apiFetch(`${BASE_URL}/create-department`, {
     method: "POST",
     body: JSON.stringify(data),
-  }) as any;
+  })) as any;
   return res.item;
 };
 
 export const updateDepartment = async (id: string, data: any) => {
-  const res = await apiFetch(`${BASE_URL}/update/${id}`, {
+  const res = (await apiFetch(`${BASE_URL}/update/${id}`, {
     method: "PUT",
     body: JSON.stringify(data),
-  }) as any;
+  })) as any;
   return res.item;
 };
 

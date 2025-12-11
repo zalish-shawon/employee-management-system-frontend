@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+---
 
-First, run the development server:
+# ✅ **Frontend README**
+
+```
+# Employee Management System – Frontend (Next.js + App Router + Tailwind CSS)
+
+This is the frontend for the Employee Management System.  
+It includes Login, Dashboard, Departments, Employees, and Attendance modules.
+
+---
+
+## 🚀 Tech Stack
+
+- Next.js 14+ (App Router)
+- TypeScript
+- Tailwind CSS
+- Axios for API calls
+- React Hook Form
+- Middleware Auth Guard
+- Modern UI (responsive)
+
+---
+
+## 📁 Folder Structure
+
+frontend/
+│── app/
+│ │── (auth)/
+│ │── departments/
+│ │── employees/
+│ │── attendance/
+│ │── layout.tsx
+│ │── page.tsx (dashboard)
+│── components/
+│── lib/
+│── public/
+│── package.json
+│── tailwind.config.js
+│── next.config.js
+
+
+---
+
+## ⚙️ Environment Variables
+
+Create `.env.local`:
+
+
+---
+
+## 📦 Installation
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🔑 Authentication Flow
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+User logs in → backend returns token
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Token saved in:
 
-## Learn More
+cookies
 
-To learn more about Next.js, take a look at the following resources:
+localStorage (optional)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Protected pages use middleware (middleware.ts)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+If no token → redirect to /login
 
-## Deploy on Vercel
+📌 Features
+✔ Authentication
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Login form with react-hook-form
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Token-based login
+
+Auto redirect to dashboard
+
+✔ Departments Module
+
+List departments
+
+Create new department
+
+Edit department
+
+Delete department
+
+✔ Employees Module
+
+List employees
+
+Create employee
+
+Update employee
+
+Delete employee
+
+✔ Attendance Module
+
+Mark attendance
+
+List attendance
+
+Update attendance
+
+Delete attendance
+
+Developed by Shawon using Next.js + Tailwind CSS 🚀
